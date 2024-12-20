@@ -1,0 +1,45 @@
+<section id="todos">
+  <header>
+    <h2><%= @building[:name] %></h2>
+    <h3>Editing Residence <%= @apartment[:name] %></h3>
+    <ul>
+      <form action="/buildings/<%= @building_id %>/apartment/<%= @apartment_id %>/destroy" method="post">
+        <button type="submit">Delete Apartment</button>
+      </form>
+    </ul>
+  </header>
+</section>
+
+<h4>Edit apartment features</h4>
+<form action="/buildings/<%= @building_id %>/apartment/<%= @apartment_id %>" method="post">
+  <%# <p>Add a new apartment</p> %>
+  <dl>
+    <div>
+      <label for="name">Name:
+        <input name="name" id="name" placeholder="<%= @apartment[:name] %>" type="text" value="<%= params[:name] || @apartment[:name] %>">
+      </label>
+    </div>
+    <div>
+      <label for="bed">Bed:
+        <input name="bed" id="bed" placeholder="<%= @apartment[:bed] %>" type="text" value="<%= params[:bed] || @apartment[:bed] %>">
+      </label>
+    </div>
+    <div>
+      <label for="bath">Bath:
+        <input name="bath" id="bath" placeholder="<%= @apartment[:bath] %>" type="text" value="<%= params[:bath] || @apartment[:bath] %>">
+      </label>
+    </div>
+     <div>
+      <label for="sq_ft">Sq_Ft:
+        <input name="sq_ft" id="sq_ft" placeholder="<%= @apartment[:sq_ft] %>" type="text" value="<%= params[:sq_ft] || @apartment[:sq_ft] %>">
+      </label>
+    </div>
+     <div>
+      <label for="price">Price:
+        <input name="price" id="price" placeholder="<%= @apartment[:price] %>" type="text" value="<%= params[:price] || @apartment[:price] %>">
+      </label>
+    </div>
+  </dl>
+  <button type="submit">Submit Edit</button>
+  <a href="/buildings/<%= @building_id %>/apartment/<%= @apartment_id %>">Cancel</a>
+</form>

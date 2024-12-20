@@ -1,0 +1,14 @@
+<form action="/buildings" method="post">
+  <dl>
+    <dt>
+      <label for="building_name">Enter the name of the new building:</label>
+    </dt>
+    <dd>
+      <input name="building_name" placeholder="Building Name" type="text" value="<%= params[:building_name] %>">
+    </dd>
+  </dl>
+  <fieldset class="actions">
+    <input type="submit" value="Save">
+    <a href="/buildings">Cancel</a>
+  </fieldset>
+</form>

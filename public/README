@@ -1,0 +1,25 @@
+Hello, welcome! This is an apartment rental manager app that keeps
+track of available unit inside apartment buildings. I aimed to keep it functional,
+fairly intuitive to use and not overly complex. Therefore I kept the username and
+password in the session, and designed the application to be a single user application. 
+Thank you for your feedback.
+
+Ruby Version: 2.7.7
+Browser used: Chrome 112.0.5615.137 (Official Build) (arm64)
+PostgreSQL Version: 14.7 (Homebrew)
+
+A database can be create through the command line with the following:
+
+createdb apartment_rental_manager
+
+The newly create database can be populated with the provided seed data by entering this on the command line:
+
+psql -d apartment_rental_manager < schema.sql
+
+Now, in the command line, you can run: "bundle install" followed by "bundle exec ruby apartment_rental_manager.rb"
+
+The website can be viewed at:
+
+http://localhost:4567
+Username: username
+Password: password

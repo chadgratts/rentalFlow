@@ -1,0 +1,34 @@
+<ul id="buildings">
+  <% @buildings.each do |building| %>
+    <li>
+      <a href="/buildings/<%= building[:id] %>">
+        <h2><%= building[:name] %></h2>
+      </a>
+    </li>
+  <% end %>
+</ul>
+
+<% content_for :header_links do %>
+  <a href="/buildings/new">Add New Building</a>
+<% end %>
+
+<% if session[:username] %>
+  <form method="post" action="/users/signout">
+    <p class="user-status">
+      Signed in as <%= session[:username] %>.
+      <button type="submit">Sign Out</button>
+    </p>
+  </form>
+<% else %>
+  <p class="user-status"><a href="/users/signin">Sign In</a></p>
+<% end %>
+
+<div class="pagination">
+  <a href="/buildings?page=<%= @page - 1 %>">Back</a>
+  <a href="/buildings?page=0">1</a>
+  <a href="/buildings?page=1">2</a>
+  <a href="/buildings?page=2">3</a>
+  <a href="/buildings?page=3">4</a>
+  <a href="/buildings?page=4">5</a>
+  <a href="/buildings?page=<%= @page + 1 %>">Next</a>
+</div>

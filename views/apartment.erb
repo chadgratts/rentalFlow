@@ -1,0 +1,22 @@
+<section id="apartment">
+  <header>
+    <h2><%= @building[:name] %></h2>
+    <h2>Residence <%= @apartment[:name] %></h2>
+    <a href="/buildings/<%= @building_id %>/apartment/<%= @apartment_id %>/edit">Edit Apartment</a>
+      <h3>Apartment Features</h3>
+  </header>
+
+  <ul>
+    <% @apartment.each do |feature, value| %>
+    <% next if feature == :id || feature == :building_id %>
+    <% if feature == :price; value = "$#{value}"; end %>
+    <li>
+      <%= feature %>: <%= value %>
+    </li>
+    <% end %>
+  </ul>
+</section>
+
+<% content_for :header_links do %>
+  <a href="/buildings/<%= @building_id %>">Go Back</a>
+<% end %>

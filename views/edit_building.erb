@@ -1,0 +1,25 @@
+<section id="todos">
+  <header>
+    <h2>Editing <%= @building[:name] %></h2>
+    <ul>
+      <form action="/buildings/<%= params[:id]%>/destroy" method="post">
+        <button type="submit" class="delete">Delete Building</button>
+      </form>
+    </ul>
+  </header>
+</section>
+
+<form action="/buildings/<%= params[:id] %>" method="post">
+  <dl>
+    <dt>
+      <label for="building_name">Enter the new name of the building:</label>
+    </dt>
+    <dd>
+      <input name="building_name" placeholder="Building Name" type="text" value="<%= params[:building_name] || @building[:name] %>">
+    </dd>
+  </dl>
+  <fieldset class="actions">
+    <input type="submit" value="Save">
+    <a href="/buildings/<%= params[:id] %>">Cancel</a>
+  </fieldset>
+</form>

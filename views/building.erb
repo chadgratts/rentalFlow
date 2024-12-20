@@ -1,0 +1,63 @@
+<section id="building">
+  <header>
+    <h2><%= @building[:name] %></h2>
+    <a href="/buildings/<%= @building_id %>/edit">Edit Building</a>
+    <h3>Available Apartments</h3>
+  </header>
+
+  <ul>
+    <% @building[:apartments].each do |apartment| %>
+      <li>
+        <a href="/buildings/<%= @building_id %>/apartment/<%= apartment[:id] %>">
+          <h3><%= apartment[:name] %></h3>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+</section>
+
+<h4>Add a new apartment</h4>
+<form action="/buildings/<%= @building_id %>/apartments" method="post">
+  <dl>
+    <div>
+      <label for="name">Name:
+        <input name="name" id="name" placeholder="" type="text" value="<%= params[:name] %>">
+      </label>
+    </div>
+    <div>
+      <label for="bed">Bed:
+        <input name="bed" id="bed" placeholder="" type="text" value="<%= params[:bed] %>">
+      </label>
+    </div>
+    <div>
+      <label for="bath">Bath:
+        <input name="bath" id="bath" placeholder="" type="text" value="<%= params[:bath] %>">
+      </label>
+    </div>
+     <div>
+      <label for="sq_ft">Sq_Ft:
+        <input name="sq_ft" id="sq_ft" placeholder="" type="text" value="<%= params[:sq_ft] %>">
+      </label>
+    </div>
+     <div>
+      <label for="price">Price:
+        <input name="price" id="price" placeholder="" type="text" value="<%= params[:price] %>">
+      </label>
+    </div>
+  </dl>
+  <button type="submit">Add</button>
+</form>
+
+<% content_for :header_links do %>
+  <a href="/buildings">Go Back</a>
+<% end %>
+
+<div>
+  <a href="/buildings/<%= @building_id %>?page=<%= @page - 1 %>">Back</a>
+  <a href="/buildings/<%= @building_id %>?page=0">1</a>
+  <a href="/buildings/<%= @building_id %>?page=1">2</a>
+  <a href="/buildings/<%= @building_id %>?page=2">3</a>
+  <a href="/buildings/<%= @building_id %>?page=3">4</a>
+  <a href="/buildings/<%= @building_id %>?page=4">5</a>
+  <a href="/buildings/<%= @building_id %>?page=<%= @page + 1 %>">Next</a>
+</div>
